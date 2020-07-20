@@ -1,0 +1,7 @@
+mixin tableRow(employee)
+    tr
+        td
+            img(src=employee.picture.thumbnail, alt="avatar")
+        td #{employee.name.first}
+        td #{employee.name.last}
+        td #{employee.email}

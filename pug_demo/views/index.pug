@@ -1,0 +1,21 @@
+extends layout.pug
+include mixins/_tableRow
+
+block content
+    table
+        thead
+            tr
+                th Avatar
+                th First Name
+                th Last Name
+                th Email
+        tbody
+            each employee in employees
+                +tableRow(employee)
+        tfoot
+            tr
+                th(colspan=4)
+
+block footer
+    footer
+        p &copy; #{new Date().getFullYear()} Dario-Web    

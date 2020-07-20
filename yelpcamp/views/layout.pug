@@ -1,0 +1,17 @@
+doctype html
+html
+    head
+        title YelpCamp
+        link(rel="stylesheet", href="/app.css")
+    
+    body
+        header
+            h1.center Welcome to YelpCamp
+        main#main
+            .container
+                block content
+        
+        block footer
+            footer.center
+                p &copy; #{new Date().getFullYear()} Yelp Camp inc
+        
