@@ -6,12 +6,19 @@ html
     
     body
         header
+            nav
+                .container
+                    ul.menu
+                        li
+                            a(href="/") Home
+                        li
+                            a(href="/campgrounds") Campgrounds
             h1.center Welcome to YelpCamp
         main#main
             .container
                 block content
         
         block footer
-            footer.center
+            footer.footer
                 p &copy; #{new Date().getFullYear()} Yelp Camp inc
         

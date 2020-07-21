@@ -8,6 +8,10 @@ app.get('/', (req, res) => {
     res.render('landing');
 });
 
+app.get('/campgrounds', (req, res) => {
+    res.render('campgrounds');
+});
+
 app.get('*', (req, res) => {
     res.render('404');
 });
