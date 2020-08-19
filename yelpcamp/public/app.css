@@ -18,7 +18,6 @@ nav {
     position: static;
     top: 0;
     width: 100%;
-    height: 3rem;
     padding: 0.5rem 0;
     background-color: #555;
     color: #fff;
@@ -29,7 +28,9 @@ nav {
     list-style-type: none;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     margin: 0;
+    padding: 0;
 }
 
 .menu li {
@@ -37,13 +38,14 @@ nav {
 }
 
 .menu li a {
-    padding-right: 0.5rem;
+    padding: 0.2rem 1rem;
     text-decoration: none;
     color: #fff;
+    border-radius: 0.3rem;
 }
 
 .menu li a:hover {
-    text-decoration: underline;
+    background-color: #0060fa;
 }
 
 .container {
@@ -52,11 +54,32 @@ nav {
     margin: 0 auto;
 }
 
+nav>.container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .center {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.button {
+    color: #fff;
+    background-color: #0060fa;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+}
+
+.button:hover {
+    box-shadow: 0 0 1rem #555;
+}
+
+.button:active {
+    transform: translateY(0.1rem);
 }
 
 .footer {
@@ -68,4 +91,8 @@ nav {
     text-align: center;
     background-color: #555;
     color: #fff;
+}
+
+.footer p {
+    margin: 0;
 }

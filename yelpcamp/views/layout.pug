@@ -10,6 +10,9 @@ html
                 .container
                     ul.menu
                         li
+                            a(href="/") YelpCamp
+                    ul.menu
+                        li
                             a(href="/") Home
                         li
                             a(href="/campgrounds") Campgrounds
@@ -18,7 +21,6 @@ html
             .container
                 block content
         
-        block footer
-            footer.footer
-                p &copy; #{new Date().getFullYear()} Yelp Camp inc
+        footer.footer
+            p &copy; #{new Date().getFullYear()} Yelp Camp inc
         
