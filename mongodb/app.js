@@ -1,17 +1,25 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/test");
-//db schema
-const testSchema = new mongoose.Schema({
-    lang: String,
-    status: String
+//db connection
+mongoose.connect("mongodb://localhost/test", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
-const Learn = mongoose.model("Learn", testSchema);
-//adding data to db
-/* const language = new Learn({
+//try to connect to database
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", () => {
+    //db schema
+    const testSchema = new mongoose.Schema({
+        lang: String,
+        status: String
+    });
+    const Learn = mongoose.model("Learn", testSchema);
+    //adding data to db
+    /* const language = new Learn({
     lang: "Python",
     status: "basic"
 }); */
-/* language.save((err, lang) => {
+    /* language.save((err, lang) => {
     if (err) {
         console.log("Error saving data");
     } else {
@@ -19,7 +27,7 @@ const Learn = mongoose.model("Learn", testSchema);
         console.log(lang);
     } 
 });*/
-/* Learn.create({
+    /* Learn.create({
         lang: "Java",
         status: "beginner"
     },
@@ -31,11 +39,12 @@ const Learn = mongoose.model("Learn", testSchema);
         }
     }
 ); */
-//retrieve all data from db
-Learn.find({}, (err, langs) => {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(langs);
-    }
+    //retrieve all data from db
+    Learn.find({ lang: "Python" }, (err, langs) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(langs);
+        }
+    });
 });
