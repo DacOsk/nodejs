@@ -2,3 +2,8 @@ extends layout.pug
 
 block content
     h1.center This is campgrounds page!
+    .gallery
+    each camp in campground
+        .card
+            img(src="" + camp.image, alt="" + camp.name)
+            h3= camp.name
