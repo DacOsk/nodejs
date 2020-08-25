@@ -1,9 +1,23 @@
 extends layout.pug
 
 block content
-    h1.center This is campgrounds page!
     .gallery
-    each camp in campground
-        .card
-            img(src="" + camp.image, alt="" + camp.name)
-            h3= camp.name
+        each camp in campground
+            .card
+                img(src="" + camp.image, alt="" + camp.name)
+                h3= camp.name
+    .center
+        button.button(onclick="showModal()", title="Add campground") Add campground
+    .modal.hidden
+        .modal-content
+            form.form(action="/newcamp", method="post")
+                label(for="name") Campground name
+                input(type="text", name="name", required)
+                label(for="image") Image URL
+                input(type="url", name="image", required)
+                input.button(type="submit", value="Save")
+    script.
+        const modal = document.querySelector('.modal');
+        function showModal() {            
+            modal.classList.remove('hidden');
+        }

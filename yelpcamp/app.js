@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 //db connection
-mongoose.connect("mongodb://localhost/yelpcamp", {
+mongoose.connect("mongodb://localhost:27017/yelpcamp", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -24,15 +24,6 @@ const campgroundSchema = new mongoose.Schema({
 });
 const Campground = mongoose.model("Campground", campgroundSchema);
 
-/* const camp = new Campground({
-    name: "Papuk",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Arang_Kel_-_Neelum_Valley.jpg/640px-Arang_Kel_-_Neelum_Valley.jpg"
-});
-camp.save((err, camp) => {
-    if (err) return console.error(err);
-    console.log("Database initialized");
-}); */
-
 app.get("/", (req, res) => {
     res.render("landing");
 });
@@ -43,6 +34,19 @@ app.get("/campgrounds", (req, res) => {
         res.render("campgrounds", {
             campground: campground
         });
+    });
+});
+
+app.post("/newcamp", (req, res) => {
+    const name = req.body.name;
+    const image = req.body.image;
+    const newCampground = {
+        name: name,
+        image: image
+    };
+    Campground.create(newCampground, (err, newCamp) => {
+        if (err) return console.error(err);
+        res.redirect("/campgrounds");
     });
 });
 
