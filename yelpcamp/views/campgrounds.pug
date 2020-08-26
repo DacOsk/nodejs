@@ -16,9 +16,3 @@ block content
                 label(for="image") Image URL
                 input(type="url", name="image", size="60", required)
                 input.button(type="submit", value="Save")
-    script.
-        const btn = document.querySelector('#add-camp')
-        const modal = document.querySelector('.modal');
-        btn.addEventListener('click', () => {            
-            modal.classList.remove('hidden');
-        });
