@@ -137,10 +137,6 @@ nav>.container {
     border-radius: 0.2rem;
 }
 
-input[type="url"] {
-    width: 60%;
-}
-
 .hidden {
     display: none;
 }
