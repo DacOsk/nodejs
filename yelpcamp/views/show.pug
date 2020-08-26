@@ -1,0 +1,9 @@
+extends layout.pug
+
+block content
+    .container.center
+        h2= campground.name
+        img(src=""+campground.image, alt=""+campground.description)
+        p= campground.description
+        p
+            a.button(href="/campgrounds") Back

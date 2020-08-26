@@ -84,6 +84,9 @@ nav>.container {
     flex-direction: column;
     align-items: center;
     margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid #555;
+    border-radius: 0.3rem;
 }
 
 .card>img {
@@ -95,7 +98,7 @@ nav>.container {
     color: #fff;
     background-color: #0060fa;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     border-radius: 0.3rem;
     font-size: inherit;
 }

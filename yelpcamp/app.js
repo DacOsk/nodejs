@@ -20,7 +20,8 @@ app.set("view engine", "pug");
 
 const campgroundSchema = new mongoose.Schema({
     name: String,
-    image: String
+    image: String,
+    description: String
 });
 const Campground = mongoose.model("Campground", campgroundSchema);
 
@@ -37,16 +38,26 @@ app.get("/campgrounds", (req, res) => {
     });
 });
 
-app.post("/newcamp", (req, res) => {
+app.post("/campgrounds", (req, res) => {
     const name = req.body.name;
     const image = req.body.image;
+    const desc = req.body.description;
     const newCampground = {
         name: name,
-        image: image
+        image: image,
+        description: desc
     };
     Campground.create(newCampground, (err, newCamp) => {
         if (err) return console.error(err);
         res.redirect("/campgrounds");
+    });
+});
+
+app.get("/campgrounds/:id", (req, res) => {
+    //show details about selected campground
+    Campground.findById(req.params.id, (err, foundCampground) => {
+        if (err) return console.error(err);
+        res.render("show", { campground: foundCampground });
     });
 });
 

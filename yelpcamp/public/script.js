@@ -1,6 +1,6 @@
-const btn = document.querySelector('#add-camp')
-const modal = document.querySelector('.modal');
+const btn = document.querySelector("#add-camp");
+const modal = document.querySelector(".modal");
 
-btn.addEventListener('click', () => {
-    modal.classList.remove('hidden');
+btn.addEventListener("click", () => {
+    modal.classList.remove("hidden");
 });
