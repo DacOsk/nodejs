@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title Blog
+        link(rel="stylesheet", href="/app.css")
+        
+    body
+        header
+            nav
+                .container
+                    ul.menu
+                        li
+                            a(href="/") Blog
+                    ul.menu
+                        li
+                            a(href="/") Home
+                        li
+                            a(href="" id="add-post") New post
+        main#main
+            .container
+                block content
+        
+        footer.footer
+            p &copy; #{new Date().getFullYear()} DacOsk
+        script(src="/script.js")

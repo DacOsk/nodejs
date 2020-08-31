@@ -1,0 +1,21 @@
+extends layout.pug
+
+block content
+    h1.center Welcome to The Blog!
+
+    .gallery
+        each blog in blogs
+            .card
+                img(src=blog.image, alt=blog.title)
+                h3= blog.title
+                p= blog.body
+    .modal.hidden
+        .modal-content
+            form.form(action="/blogs", method="post")
+                label(for="title") Title
+                input(type="text", name="title", required)
+                label(for="image") Image URL
+                input(type="url", name="image", size="60", required)
+                label(for="body") Content
+                textarea(name="body", rows="5", cols="60", required)
+                input.button(type="submit", value="Publish")
