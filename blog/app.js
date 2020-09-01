@@ -22,6 +22,7 @@ const blogSchema = new mongoose.Schema({
 const Blog = mongoose.model("Blog", blogSchema);
 
 // RESTful routes
+// index route
 app.get("/", (req, res) => {
     res.redirect("/blogs");
 });
@@ -33,19 +34,13 @@ app.get("/blogs", (req, res) => {
     });
 });
 
+// create route
 app.post("/blogs", (req, res) => {
-    const title = req.body.title;
-    const image = req.body.image;
-    const body = req.body.body;
-    const newBlogEntry = {
-        title: title,
-        image: image,
-        body: body
-    };
-    Blog.create(newBlogEntry, (err, newBlog) => {
+    Blog.create(req.body.blog, (err, newBlog) => {
         if (err) return console.error(err);
         res.redirect("/blogs");
     });
 });
 
+// server start
 app.listen(3000, () => console.log("Blog active!"));

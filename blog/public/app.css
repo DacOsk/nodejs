@@ -10,7 +10,7 @@ body {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto, Helvetica, sans-serif;
     font-size: 1.25rem;
 }
 
@@ -57,8 +57,8 @@ nav {
 }
 
 .container {
-    width: 80%;
-    max-width: 1050px;
+    width: 85%;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -125,9 +125,9 @@ nav>.container {
 
 .modal-content {
     background-color: #fff;
-    margin: 10% auto;
-    width: 80%;
-    height: 60%;
+    margin: 5vh auto;
+    width: 80vw;
+    height: 80vh;
     padding: 1rem;
 }
 
@@ -138,10 +138,15 @@ nav>.container {
 }
 
 .form input[type="text"],
-.form input[type="url"] {
+.form input[type="url"],
+textarea {
     margin: 1rem 0;
     padding: 0.5rem 0.3rem;
     border-radius: 0.2rem;
+}
+
+textarea {
+    font-size: inherit;
 }
 
 .hidden {

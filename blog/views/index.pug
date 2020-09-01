@@ -12,10 +12,10 @@ block content
     .modal.hidden
         .modal-content
             form.form(action="/blogs", method="post")
-                label(for="title") Title
-                input(type="text", name="title", required)
-                label(for="image") Image URL
-                input(type="url", name="image", size="60", required)
-                label(for="body") Content
-                textarea(name="body", rows="5", cols="60", required)
+                label(for="blog[title]") Title
+                input(type="text", name="blog[title]", required)
+                label(for="blog[image]") Image URL
+                input(type="url", name="blog[image]", size="56", required)
+                label(for="blog[body]") Content
+                textarea(name="blog[body]", rows="3", cols="54", required)
                 input.button(type="submit", value="Publish")
