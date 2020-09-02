@@ -1,14 +1,15 @@
 extends layout.pug
 
 block content
-    h1.center Welcome to The Blog!
+    h2.center Welcome to The Blog!
 
     .gallery
         each blog in blogs
             .card
                 img(src=blog.image, alt=blog.title)
                 h3= blog.title
-                p= blog.body
+                p= blog.body.substring(0, 100) + "..."
+                a.button(href="/blogs/" + blog._id) Read more
     .modal.hidden
         .modal-content
             form.form(action="/blogs", method="post")

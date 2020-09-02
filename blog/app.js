@@ -42,5 +42,15 @@ app.post("/blogs", (req, res) => {
     });
 });
 
+// show route
+app.get("/blogs/:id", (req, res) => {
+    Blog.findById(req.params.id, (err, showBlog) => {
+        if (err) return console.error(err);
+        res.render("show", { blog: showBlog });
+    });
+});
+
+// edit route
+
 // server start
 app.listen(3000, () => console.log("Blog active!"));

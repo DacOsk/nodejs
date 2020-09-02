@@ -1,0 +1,9 @@
+extends layout.pug
+
+block content
+    .center
+        h2= blog.title
+        p= blog.created.toLocaleDateString()
+        img(src="" + blog.image, alt="" + blog.title)
+        p= blog.body
+        a.button(href="/blogs") Back

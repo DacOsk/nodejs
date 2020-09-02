@@ -14,6 +14,13 @@ body {
     font-size: 1.25rem;
 }
 
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
 img {
     max-width: 100%;
 }
@@ -160,6 +167,7 @@ textarea {
     padding: 0.5rem 0;
     bottom: 0;
     text-align: center;
+    font-size: 0.8rem;
     background-color: #555;
     color: #fff;
 }
