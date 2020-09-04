@@ -29,10 +29,13 @@ input {
     font-size: inherit;
 }
 
-nav {
-    position: static;
+header {
+    position: sticky;
     top: 0;
     width: 100%;
+}
+
+nav {
     padding: 0.5rem 0;
     background-color: #555;
     color: #fff;
@@ -82,10 +85,13 @@ nav>.container {
 }
 
 .gallery {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-content: space-between;
+    align-content: space-between; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 3rem;
 }
 
 .card {
@@ -93,14 +99,21 @@ nav>.container {
     flex-direction: column;
     align-items: center;
     margin: 0.5rem;
-    padding: 0.3rem;
+    padding: 0.3rem 0.3rem 1rem;
     border: 1px solid #555;
     border-radius: 0.3rem;
+    max-width: 330px;
 }
 
 .card>img {
     display: block;
     width: 320px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
 }
 
 .button {

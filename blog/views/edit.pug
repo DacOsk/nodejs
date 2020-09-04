@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+    .center
+        h2 Edit
+        form.form(action="/blogs/" + blog._id + "?_method=PUT", method="post")
+            label(for="blog[title]") Title
+            input(type="text", name="blog[title]", value="" + blog.title, required)
+            label(for="blog[image]") Image URL
+            input(type="url", name="blog[image]", size="56", value="" + blog.image, required)
+            label(for="blog[body]") Content
+            textarea(name="blog[body]", rows="3", cols="54", required)= blog.body
+            input.button(type="submit", value="Publish")

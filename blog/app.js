@@ -1,15 +1,18 @@
 const bodyParser = require("body-parser"),
     mongoose = require("mongoose"),
     express = require("express"),
+    methodOverride = require("method-override"),
     app = express();
 
 mongoose.connect("mongodb://localhost/blog_app", {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 });
 app.set("view engine", "pug");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 // Mongoose model config
 const blogSchema = new mongoose.Schema({
@@ -51,6 +54,30 @@ app.get("/blogs/:id", (req, res) => {
 });
 
 // edit route
+app.get("/blogs/:id/edit", (req, res) => {
+    Blog.findById(req.params.id, (err, showBlog) => {
+        if (err) return console.error(err);
+        res.render("edit", { blog: showBlog });
+    });
+});
+
+// update route
+app.put("/blogs/:id", (req, res) => {
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, (err, updatedBlog) => {
+        if (err) {
+            res.render("/edit", { blog: updatedBlog });
+        }
+        res.redirect("/blogs/" + req.params.id);
+    });
+});
+
+// delete route
+app.delete("/blogs/:id", (req, res) => {
+    Blog.findOneAndDelete(req.params.id, err => {
+        if (err) return console.error(err);
+        res.redirect("/blogs");
+    });
+});
 
 // 404 route
 app.get("*", (req, res) => {

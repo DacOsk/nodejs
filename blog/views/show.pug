@@ -6,4 +6,7 @@ block content
         p= blog.created.toLocaleDateString()
         img(src="" + blog.image, alt="" + blog.title)
         p= blog.body
-        a.button(href="/blogs") Back
+        form.button-row(action="/blogs/" + blog._id + "?_method=DELETE" method="post")
+            a.button(href="/blogs") Back
+            a.button(href="/blogs/" + blog._id + "/edit") Edit
+            input.button(type="submit", value="Delete")
