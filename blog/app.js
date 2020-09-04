@@ -52,5 +52,10 @@ app.get("/blogs/:id", (req, res) => {
 
 // edit route
 
+// 404 route
+app.get("*", (req, res) => {
+    res.render("404");
+});
+
 // server start
 app.listen(3000, () => console.log("Blog active!"));
