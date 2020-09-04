@@ -42,6 +42,10 @@ nav {
     z-index: 1000;
 }
 
+textarea {
+    font-size: inherit;
+}
+
 .menu {
     list-style-type: none;
     display: flex;
@@ -165,8 +169,8 @@ textarea {
     border-radius: 0.2rem;
 }
 
-textarea {
-    font-size: inherit;
+.inline {
+    display: inline;
 }
 
 .hidden {

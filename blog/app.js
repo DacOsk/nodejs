@@ -63,20 +63,31 @@ app.get("/blogs/:id/edit", (req, res) => {
 
 // update route
 app.put("/blogs/:id", (req, res) => {
-    Blog.findByIdAndUpdate(req.params.id, req.body.blog, (err, updatedBlog) => {
-        if (err) {
-            res.render("/edit", { blog: updatedBlog });
+    Blog.findOneAndUpdate({
+            _id: req.params.id
+        },
+        req.body.blog, {
+            new: true
+        },
+        (err, updatedBlog) => {
+            if (err) {
+                res.render("/edit", { blog: updatedBlog });
+            }
+            res.redirect("/blogs/" + req.params.id);
         }
-        res.redirect("/blogs/" + req.params.id);
-    });
+    );
 });
 
 // delete route
 app.delete("/blogs/:id", (req, res) => {
-    Blog.findOneAndDelete(req.params.id, err => {
-        if (err) return console.error(err);
-        res.redirect("/blogs");
-    });
+    Blog.findOneAndDelete({
+            _id: req.params.id
+        },
+        err => {
+            if (err) return console.error(err);
+            res.redirect("/blogs");
+        }
+    );
 });
 
 // 404 route
