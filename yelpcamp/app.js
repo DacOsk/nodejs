@@ -39,15 +39,7 @@ app.get("/campgrounds", (req, res) => {
 });
 
 app.post("/campgrounds", (req, res) => {
-    const name = req.body.name;
-    const image = req.body.image;
-    const desc = req.body.description;
-    const newCampground = {
-        name: name,
-        image: image,
-        description: desc
-    };
-    Campground.create(newCampground, (err, newCamp) => {
+    Campground.create(req.body.camp, (err, newCamp) => {
         if (err) return console.error(err);
         res.redirect("/campgrounds");
     });

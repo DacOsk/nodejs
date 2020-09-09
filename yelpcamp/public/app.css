@@ -58,7 +58,7 @@ nav {
 
 .container {
     width: 80%;
-    max-width: 1050px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -75,17 +75,17 @@ nav>.container {
 }
 
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0.5rem;
+    /*margin: 0.5rem;*/
     padding: 0.3rem;
     border: 1px solid #555;
     border-radius: 0.3rem;
@@ -137,8 +137,8 @@ nav>.container {
     align-items: center;
 }
 
-.form input[type=text],
-.form input[type=url] {
+.form input[type="text"],
+.form input[type="url"] {
     margin: 1rem 0;
     padding: 0.5rem 0.3rem;
     border-radius: 0.2rem;

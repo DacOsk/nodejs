@@ -15,14 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
 // Mongoose model config
-const blogSchema = new mongoose.Schema({
-    title: String,
-    image: String,
-    body: String,
-    created: { type: Date, default: Date.now }
-});
-
-const Blog = mongoose.model("Blog", blogSchema);
+const Blog = require("./models/blog");
 
 // RESTful routes
 // index route
