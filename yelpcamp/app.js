@@ -18,12 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set("view engine", "pug");
 
-const campgroundSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-const Campground = mongoose.model("Campground", campgroundSchema);
+const Campground = require("./models/campgrounds");
 
 app.get("/", (req, res) => {
     res.render("landing");
