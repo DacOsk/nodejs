@@ -5,5 +5,20 @@ block content
         h2= campground.name
         img(src=""+campground.image, alt=""+campground.description)
         p= campground.description
-        p
+        p.button-row
             a.button(href="/campgrounds") Back
+            a.button#add-comment(href="#") Add comment
+        div.comments
+            if (campground.comments[0])
+                each comment in campground.comments
+                    div
+                        p= comment.author + " - " + comment.text
+    .modal.hidden
+        .modal-content
+            form.form(action="/campgrounds/"+campground._id+"/comments", method="post")
+                label(for="author") Your name
+                input(type="text", name="comment[author]", required)
+                label(for="text") Comment
+                input(type="text", name="comment[text]", size="60", required)
+                input.button(type="submit", value="Save")
+    script(src="/comment.js")

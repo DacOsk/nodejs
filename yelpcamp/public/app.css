@@ -148,6 +148,17 @@ nav>.container {
     display: none;
 }
 
+.button-row {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.comments {
+    margin-bottom: 3rem;
+}
+
 .footer {
     position: fixed;
     width: 100%;
