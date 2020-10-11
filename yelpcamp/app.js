@@ -22,7 +22,7 @@ app.set("view engine", "pug");
 
 const Campground = require("./models/campgrounds");
 const Comment = require("./models/comment");
-const campgrounds = require("./models/campgrounds");
+//const campgrounds = require("./models/campgrounds");
 
 app.get("/", (req, res) => {
     res.render("landing");
