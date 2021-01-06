@@ -1,0 +1,16 @@
+{
+  "name": "pug_demo",
+  "version": "1.0.0",
+  "description": "pug templating demo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "pug": "^3.0.0"
+  }
+}

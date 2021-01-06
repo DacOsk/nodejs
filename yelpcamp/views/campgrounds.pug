@@ -1,0 +1,22 @@
+extends layout.pug
+
+block content
+    .gallery
+        each camp in campground
+            .card
+                img(src="" + camp.image, alt="" + camp.name)
+                h3= camp.name
+                a.button#details(href="/campgrounds/"+camp._id) Description
+    .center
+        input.button#add-camp(type="button", value="Add campground")
+    .modal.hidden
+        .modal-content
+            form.form(action="/campgrounds", method="post")
+                label(for="name") Campground name
+                input(type="text", name="camp[name]", required)
+                label(for="image") Image URL
+                input(type="text", name="camp[image]", size="60", required)
+                label(for="description") Description
+                input(type="text", name="camp[description]", size="60", required)
+                input.button(type="submit", value="Save")
+    script(src="/camp.js")
