@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        title SQLite test
+        link(rel="stylesheet", href="/app.css")
+        
+    body
+        header
+            nav
+                .container
+                    ul.menu
+                        li
+                            a(href="/") SQLite test app
+                    ul.menu
+                        li
+                            a(href="/") Home
+        main#main
+            .container
+                block content
+        
+        footer.footer
+            p &copy; #{new Date().getFullYear()} DacOsk
+        //script(src="/script.js")
+                
