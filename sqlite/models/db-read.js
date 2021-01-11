@@ -5,15 +5,13 @@ module.exports.dbRead = () => {
         if(err) console.error(err);
         console.log('DB connected.');
     });
-    const dbReadResult = {};
-    const sql = `SELECT rowid AS id, col1, col2 FROM test`
+
+    const dbReadResult = [];
+    const sql = 'SELECT * FROM test';
     db.serialize(() => {
-        db.each(sql,(err, row) => {
+        db.get(sql,(err, row) => {
             if (err) console.error(err);
-            dbReadResult[row.id] = {
-                col1: row.col1, 
-                col2: row.col2
-            };
+            dbReadResult = row;
         });
     });
 
@@ -21,6 +19,5 @@ module.exports.dbRead = () => {
         if (err) console.error(err);
         console.log('DB closed');
     });
-    console.log(dbReadResult);
     return dbReadResult;
 };

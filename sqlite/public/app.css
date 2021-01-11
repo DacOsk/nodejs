@@ -12,6 +12,7 @@ body {
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.25rem;
+    padding-bottom: 2rem;
 }
 
 img {
@@ -20,6 +21,10 @@ img {
 
 input {
     font-size: inherit;
+}
+
+p {
+    margin: .2rem 0;
 }
 
 nav {
