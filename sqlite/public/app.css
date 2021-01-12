@@ -145,7 +145,8 @@ nav>.container {
 }
 
 .form input[type="text"],
-.form input[type="url"] {
+.form input[type="url"],
+.form select {
     margin: 1rem 0;
     padding: 0.5rem 0.3rem;
     border-radius: 0.2rem;

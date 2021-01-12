@@ -3,7 +3,8 @@ const sqlite3 = require('sqlite3').verbose(),
       bodyParser = require('body-parser'),
       override = require('method-override');
 
-//const dbData = require('./models/db-read');
+const dbData = require('./models/db-read');
+const dbInsert = require('./models/db-write');
 const app = express();
 
 app.use(express.static("public"));
@@ -16,32 +17,16 @@ app.get("/", (req, res) => {
     res.render("landing");
 });
 
-app.get("/test", (req, res) => {
-    /* const dbFill = require('./models/db-write');
-    dbFill.dbWrite(); 
-    const data = dbData.dbRead();*/
-    const sql = 'SELECT * FROM test WHERE col2 = ?';
-    db.all(sql, [6], (err,rows) => {
-        if (err) console.error(err);
-        res.render("test", {
-            data: rows
-        });
-    });
-});
-
 app.post("/test", (req, res) => {
-    const sql = 'SELECT * FROM test WHERE col2 = ?';
-    db.all(sql, [req.body.number], (err,rows) => {
-        if (err) console.error(err);
-        res.render("test", {
-            data: rows
-        });
-    });
+    const data = dbData.dbRead(req.body.number, res);
 });
 
-let db = new sqlite3.Database('./db/test.db', err => {
-    if(err) console.error(err);
-    console.log('DB connected.');
+app.get("/new-data", (req, res) => {
+    res.render("insert");
+});
+
+app.post("/write", (req,res) => {
+    const newData = dbInsert.dbWrite(req.body.new, res);
 });
 /*
     const newDB = db.run('CREATE TABLE IF NOT EXISTS test (col1 varchar(20), col2 integer)');

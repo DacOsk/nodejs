@@ -1,6 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 
-module.exports.dbWrite = () => {
+module.exports.dbWrite = (data, res) => {
     let db = new sqlite3.Database('./db/test.db', err => {
         if(err) console.error(err);
         console.log('DB connected.');
@@ -9,9 +9,7 @@ module.exports.dbWrite = () => {
     const sql = 'INSERT INTO test VALUES (?, ?)';
 
     const write = db.prepare(sql);
-    for (let i = 1; i <= 10; i++){
-        write.run(`row${i}`, 11 - i);      
-    }
+    write.run(data.col1, data.col2);      
     write.finalize(err => {
         if (err) console.error(err);
         console.log('data written to DB');
@@ -19,5 +17,6 @@ module.exports.dbWrite = () => {
     db.close(err => {
         if (err) console.error(err);
         console.log('DB closed');
-    })
+        res.redirect("/");
+    });
 }
