@@ -3,10 +3,10 @@ const sqlite3 = require('sqlite3').verbose(),
       bodyParser = require('body-parser'),
       override = require('method-override');
 
-const dbData = require('./models/db-read');
-const dbInsert = require('./models/db-write');
-const app = express();
+const dbData = require('./models/db-read'),
+      dbInsert = require('./models/db-write');
 
+const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -26,6 +26,7 @@ app.get("/new-data", (req, res) => {
 });
 
 app.post("/write", (req,res) => {
+    //console.log(req.body.new);
     const newData = dbInsert.dbWrite(req.body.new, res);
 });
 /*
