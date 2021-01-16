@@ -1,15 +1,16 @@
 const sqlite3 = require('sqlite3').verbose(),
-      express = require('express'),
-      bodyParser = require('body-parser'),
-      override = require('method-override');
+    express = require('express'),
+    bodyParser = require('body-parser'),
+    override = require('method-override');
 
 const dbData = require('./models/db-read'),
-      dbInsert = require('./models/db-write');
+    dbInsert = require('./models/db-write');
 
 const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(override("_method"));
 
 app.set("view engine", "pug");
 
@@ -25,7 +26,7 @@ app.get("/new-data", (req, res) => {
     res.render("insert");
 });
 
-app.post("/write", (req,res) => {
+app.post("/write", (req, res) => {
     //console.log(req.body.new);
     const newData = dbInsert.dbWrite(req.body.new, res);
 });
