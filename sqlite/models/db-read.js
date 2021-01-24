@@ -6,13 +6,18 @@ module.exports.dbRead = (value, res) => {
         console.log('DB connected.');
     });
 
-    const dbReadResult = [];
     const sql = 'SELECT * FROM test WHERE col2 LIKE ?';
 
     db.all(sql, [value], (err, rows) => {
-        if (err) console.error(err);    
+        if (err) console.error(err);  
+        const noData = [ {
+            col1: 'No data',
+            col2: 0
+        } ]
+        const data = (rows.length > 0) ? rows : noData;
+        //console.log(rows.length, data);
         res.render("test", {
-            data: rows
+            data: data
         });
     });
 
