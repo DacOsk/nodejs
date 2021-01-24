@@ -5,7 +5,7 @@ const sqlite3 = require('sqlite3').verbose(),
       fs = require('fs');
 
 const dbData = require('./models/db-read'),
-      dbInsert = require('./models/db-write');
+    dbInsert = require('./models/db-write');
 
 try {
     if (fs.existsSync('./db/test.db')) {
@@ -43,25 +43,6 @@ try {
         const newData = dbInsert.dbWrite(req.body.new, res);
     });
     /*
-        const newDB = db.run('CREATE TABLE IF NOT EXISTS test (col1 varchar(20), col2 integer)');
-        if (newDB) {
-            const dbInsert = db.prepare('INSERT INTO test VALUES (?, ?)');
-            for (let i = 1; i <= 10; i++) {
-                dbInsert.run(`row ${i}`, 10 - i);
-            }
-            dbInsert.finalize();
-            db.close(err => {
-                if(err) console.error(err);
-                console.log('DB connection closed.');
-            });
-        }
-
-        db.each('SELECT rowid AS id, col1, col2 FROM test', (err, row) => {
-            if (err) console.error(err);
-            //console.log(`${row.id}: ${row.col1}, ${row.col2}`);
-            dbData[row.id] = [row.col1, row.col2];
-        });
-
         const dbDelete = db.prepare('DELETE FROM test WHERE col1 LIKE "row%"');
         dbDelete.run(err => {
             if (err) console.error(err);
