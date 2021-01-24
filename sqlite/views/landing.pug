@@ -6,6 +6,7 @@ block content
         form.form(action="/test", method="post")
             label(for="number") Select number
             select(name="number")
+                option(value="%") ALL
                 option(value="1") 1
                 option(value="2") 2
                 option(value="3") 3
