@@ -3,5 +3,13 @@ extends layout.pug
 block content
     h2.center DB contents
     .center
-        each row in data
-            p= row.col1 + ": " + row.col2
+        table.table
+            tr
+                th Data
+                th Number
+            each row in data
+                tr
+                    td
+                        a(href="/edit/" + row.id)= row.col1
+                    td
+                        a(href="/edit/" + row.id)= row.col2

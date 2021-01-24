@@ -1,0 +1,15 @@
+extends layout.pug
+
+block content
+    h2.center DB contents
+    .center
+        form(action="/delete", method="post", id="delete")
+        form.form(action="/update", method="post")
+            input(type="hidden", name="update[id]", value="" + data.id)
+            label(for="update[col1]") Text
+            input(type="text", name="update[col1]", value="" + data.col1)
+            label(for="update[col2]") Select number
+            input(type="number", name="update[col2]", value="" + data.col2, min="1", max="10")
+            .button-row
+                input.button(type="submit", value="Update")
+                input.button(type="submit", value="Delete", form="delete")

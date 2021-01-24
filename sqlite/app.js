@@ -31,7 +31,8 @@ try {
     });
 
     app.post("/test", (req, res) => {
-        const data = dbData.dbRead(req.body.number, res);
+        const method = 'read';
+        const data = dbData.dbRead(req.body.number, method, res);
     });
 
     app.get("/new-data", (req, res) => {
@@ -39,9 +40,27 @@ try {
     });
 
     app.post("/write", (req,res) => {
-        //console.log(req.body.new);
-        const newData = dbInsert.dbWrite(req.body.new, res);
+        const method = 'new';
+        const newData = dbInsert.dbWrite(req.body.new, method, res);
     });
+
+    app.get("/edit/:id", (req, res) => {
+        if (req.params.id === '0') {
+            res.render("insert");
+        } else {
+            const method = 'edit';
+            const editData = dbData.dbRead(req.params.id, method, res);
+        }
+    });
+
+    app.post("/update", (req, res) => {
+        const method = 'update';
+        const updateData = dbInsert.dbWrite(req.body.update, method, res);
+    });
+
+    app.post("/delete", (req, res) => {
+        res.send('<h2>Delete row page!</h2>');
+    })
     /*
         const dbDelete = db.prepare('DELETE FROM test WHERE col1 LIKE "row%"');
         dbDelete.run(err => {
