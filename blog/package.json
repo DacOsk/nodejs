@@ -17,7 +17,7 @@
         "express": "^4.17.1",
         "method-override": "^3.0.0",
         "mongoose": "^5.11.10",
-        "pug": "^3.0.0"
+        "pug": "^3.0.1"
     },
     "devDependencies": {
         "prettier": "^2.2.1"
