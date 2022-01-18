@@ -1,0 +1,21 @@
+{
+  "name": "db-test",
+  "version": "1.0.0",
+  "description": "simple json db test",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Dac",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "pug": "^3.0.2",
+    "simple-json-db": "^1.2.3"
+  }
+}

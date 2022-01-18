@@ -1,0 +1,10 @@
+{
+    "test": [
+        {
+            "data0": "some data"
+        },
+        {
+            "data1": "more data"
+        }
+    ]
+}
