@@ -14,7 +14,7 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
-    "express": "^4.17.2",
+    "express": "^4.19.2",
     "pug": "^3.0.2",
     "simple-json-db": "^1.2.3"
   }
