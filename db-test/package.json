@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "express": "^4.19.2",
-    "pug": "^3.0.2",
+    "pug": "^3.0.3",
     "simple-json-db": "^1.2.3"
   }
 }
